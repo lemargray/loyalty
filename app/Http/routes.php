@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
+Route::group(['middleware' => ['web']], function () {
+
+
+
+    Route::get('/', function () {
+	//return ['id' => 12345, 'name' => 'Lemar'];
     return view('welcome');
+	});
+
+	Route::post('/create', 'HomeController@index');
 });
+
+
